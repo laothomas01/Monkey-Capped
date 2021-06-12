@@ -2,7 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/*
+ *USE THIS SCRIPT FOR ANY OBJECTS YOU WANT PICKED UP
+ * REQUIREMENTS TO USE THIS SCRIPT:
+ *  -EMPTY OBJECT'S TRANSFORM FOR HOLDING AN OBJECT
+ *  -PICKED UP OBJECT'S RIGID BODY
+ *  -THE PICK UPPER'S TRANSFORM
+ */
+ 
 
 //this script will be assigned to objects needing pick up
 public class PickUpObject : MonoBehaviour
