@@ -2,41 +2,113 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+//this script will be assigned to objects needing pick up
 public class PickUpObject : MonoBehaviour
 {
 
-    public float getPickable()
-    {
-        GameObject[] pickables;
-        pickables = GameObject.FindGameObjectsWithTag("Pickable");
-        GameObject p = null;
-        Vector3 position = transform.position;
-        float diff = 0f;
-        float distance = 2.5f;
-        foreach (GameObject pickable in pickables)
-        {
-            Vector3 difference = pickable.transform.position - position;
-            //Debug.Log("DIFFERENCE:" + difference);
 
-            if (difference.z < distance)
-            {
-                diff = difference.z;
-                p = pickable;
-            }
+    //let's get the player object
+    public Transform player;
+    //let's get our box's rigidbody
+    public Rigidbody boxRigidBody;
+    //let's get the position of the handHolding object
+    public Transform handHoldPosition;
 
-        }
-        return diff;
+    //our pick up range
+    public float pickUpRange;
 
-    }
-    private void Start()
-    {
-
-    }
     private void Update()
     {
+        //distance from player = our player's position - our box's position
+        Vector3 distanceToPlayer = player.position - this.transform.position;
+        Debug.Log("DISTANCE TO PLAYER:" + distanceToPlayer);
+        if (distanceToPlayer.magnitude <= pickUpRange && Input.GetKey(KeyCode.Space))
+        {
+            PickUp();
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Drop();
+        }
+        //Vector3 distanceToPlayer = this.transform.position - box.transform.position;
+        //if (distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    PickUp();
+        //}
+        //if (Input.GetKeyUp(KeyCode.Space))
+        //{
+        //    Drop();
+        //}
 
-        Debug.Log("PICKABLE:" + getPickable());
+
     }
+    private void PickUp()
+    {
+        this.transform.position = handHoldPosition.position;
+        this.transform.parent = player;
+        this.boxRigidBody.useGravity = false;
+        //box.transform.position = handHoldPosition.transform.position;
+        //box.transform.parent = this.transform;
+        //boxRigidBody.useGravity = false;
+
+
+    }
+    private void Drop()
+    {
+        this.transform.parent = null;
+        this.boxRigidBody.useGravity = true;
+        //we will add a force when dropped later
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //public float getPickable()
+    //{
+    //    GameObject[] pickables;
+    //    pickables = GameObject.FindGameObjectsWithTag("Pickable");
+    //    GameObject p = null;
+    //    Vector3 position = transform.position;
+    //    float diff = 0f;
+    //    float distance = 2.5f;
+    //    foreach (GameObject pickable in pickables)
+    //    {
+    //        Vector3 difference = pickable.transform.position - position;
+    //        //Debug.Log("DIFFERENCE:" + difference);
+
+    //        if (difference.z < distance)
+    //        {
+    //            diff = difference.z;
+    //            p = pickable;
+    //        }
+
+    //    }
+    //    return diff;
+
+    //}
+    //private void Start()
+    //{
+
+    //}
+    //private void Update()
+    //{
+
+    //    Debug.Log("PICKABLE:" + getPickable());
+    //}
 
 
 
