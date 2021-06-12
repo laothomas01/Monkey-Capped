@@ -18,50 +18,64 @@ public class PickUpObject : MonoBehaviour
 
     //our pick up range
     public float pickUpRange;
+    public float angle;
+    public float force;
+    public bool holdingObject;
+    private void Start()
+    {
 
+        force = 10.0f;
+
+    }
     private void Update()
     {
+
         //distance from player = our player's position - our box's position
         Vector3 distanceToPlayer = player.position - this.transform.position;
         Debug.Log("DISTANCE TO PLAYER:" + distanceToPlayer);
         if (distanceToPlayer.magnitude <= pickUpRange && Input.GetKey(KeyCode.Space))
         {
+            angle = Random.Range(90, 45);
+            force = Random.Range(400, 500);
             PickUp();
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            Drop();
+            if (holdingObject)
+            {
+                Drop();
+            }
         }
-        //Vector3 distanceToPlayer = this.transform.position - box.transform.position;
-        //if (distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    PickUp();
-        //}
-        //if (Input.GetKeyUp(KeyCode.Space))
-        //{
-        //    Drop();
-        //}
+
 
 
     }
     private void PickUp()
     {
+
         this.transform.position = handHoldPosition.position;
-        this.transform.parent = player;
+        this.transform.SetParent(player);
         this.boxRigidBody.useGravity = false;
-        //box.transform.position = handHoldPosition.transform.position;
-        //box.transform.parent = this.transform;
-        //boxRigidBody.useGravity = false;
+        holdingObject = true;
+    }
+    //Dropping objects and throwing
+    private void Drop()
+    {
+        holdingObject = false;
+        this.transform.parent = null;
+        this.boxRigidBody.useGravity = true;
+
+        Throw();
 
 
     }
-    private void Drop()
+    //when an object is dropped, it's thrown.
+    private void Throw()
     {
-        this.transform.parent = null;
-        this.boxRigidBody.useGravity = true;
-        //we will add a force when dropped later
+        float xcomponent = Mathf.Cos(angle * Mathf.PI / 180) * force;
+        float ycomponent = Mathf.Sin(angle * Mathf.PI / 180) * force;
 
-
+        boxRigidBody.AddForce(0, ycomponent, xcomponent);
     }
 
 
