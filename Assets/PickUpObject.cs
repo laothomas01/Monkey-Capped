@@ -4,43 +4,168 @@ using UnityEngine;
 
 public class PickUpObject : MonoBehaviour
 {
-    //destination
-    public Transform handHeldPosition;
-    bool dropObject;
-    bool pickupObject;
-    bool collidedWithObject;
+
+    public float getPickable()
+    {
+        GameObject[] pickables;
+        pickables = GameObject.FindGameObjectsWithTag("Pickable");
+        GameObject p = null;
+        Vector3 position = transform.position;
+        float diff = 0f;
+        float distance = 2.5f;
+        foreach (GameObject pickable in pickables)
+        {
+            Vector3 difference = pickable.transform.position - position;
+            //Debug.Log("DIFFERENCE:" + difference);
+
+            if (difference.z < distance)
+            {
+                diff = difference.z;
+                p = pickable;
+            }
+
+        }
+        return diff;
+
+    }
+    private void Start()
+    {
+
+    }
     private void Update()
     {
-        if (collidedWithObject)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                this.transform.position = handHeldPosition.transform.position;
-                this.transform.parent = GameObject.Find("HandHoldPosition").transform;
 
-            }
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-
-                this.transform.parent = null;
-                collidedWithObject = false;
-            }
-        }
-
+        Debug.Log("PICKABLE:" + getPickable());
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
 
-        collidedWithObject = true;
-        Debug.Log("Collided");
-    }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        collidedWithObject = false;
-        Debug.Log("Not Collided");
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //public GameObject handHeldPosition;
+    //public GameObject[] pickable;
+    //void Start()
+    //{
+    //    pickable = GameObject.FindGameObjectsWithTag("Pickable");
+
+    //}
+
+    //// Update is called once per frame
+    //void Update()
+    //{
+
+    //}
+    //private void OnTriggerEnter(Collider other)
+    //{
+
+    //    Debug.Log(" SPhere Collided with object");
+    //    other.transform.position = handHeldPosition.transform.position;
+    //    other.transform.parent = handHeldPosition.transform;
+
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    Debug.Log("Stopped Colliding with object");
+    //}
+
+
+
+    //-----------------------------------------------------
+    /*
+     * 
+     *
+     *
+     * onCollision(collide other)
+     * {
+     *   other.transform.position = handheldposition.transform.positon 
+     *  other.transform.parent = handheldposition.transform
+     * }
+     * 
+     * 
+     */
+    //destination
+    //public Transform handHeldPosition;
+    //bool dropObject;
+    //bool pickupObject;
+    //bool collidedWithObject;
+    //private void FixedUpdate()
+    //{
+    //    //    if (collidedWithObject)
+    //    //    {
+    //    if (Input.GetKey(KeyCode.Space))
+    //    {
+
+    //        if (collidedWithObject)
+    //        {
+    //            //GetComponent<Rigidbody>().freezeRotation = true;
+    //            Debug.Log("Picked Up");
+    //            GetComponent<Rigidbody>().useGravity = false;
+    //            this.transform.position = handHeldPosition.transform.position;
+    //            this.transform.parent = GameObject.Find("HandHoldPosition").transform;
+
+    //        }
+
+    //    }
+
+    //    //}
+    //    if (Input.GetKeyUp(KeyCode.Space))
+    //    {
+
+    //        //GetComponent<Rigidbody>().freezeRotation = false;
+    //        Debug.Log("Dropped");
+    //        GetComponent<Rigidbody>().useGravity = true;
+
+    //        this.transform.parent = null;
+    //        collidedWithObject = false;
+    //    }
+
+    //}
+
+
+
+    //private void OnTriggerEnter(Collider collision)
+    //{
+
+    //    collidedWithObject = true;
+    //    Debug.Log("Collided");
+    //}
+
+    //private void OnTriggerExit(Collider collision)
+    //{
+    //    collidedWithObject = false;
+    //    Debug.Log("Not Collided");
+    //}
+
+
+    //------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Start is called before the first frame update
 
     //private void OnMouseDown()
