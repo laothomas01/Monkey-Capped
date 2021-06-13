@@ -3,20 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< Updated upstream
   tags:
   - Box
   - Pickable
-=======
-<<<<<<< Updated upstream
-  tags: []
-=======
-  tags:
-  - Box
-  - Pickable
-  - enemy
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
