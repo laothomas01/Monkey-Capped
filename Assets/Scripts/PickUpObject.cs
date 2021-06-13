@@ -39,7 +39,7 @@ public class PickUpObject : MonoBehaviour
 
         //distance from player = our player's position - our box's position
         Vector3 distanceToPlayer = player.position - this.transform.position;
-        Debug.Log("DISTANCE TO PLAYER:" + distanceToPlayer);
+        //Debug.Log("DISTANCE TO PLAYER:" + distanceToPlayer);
         if (distanceToPlayer.magnitude <= pickUpRange && Input.GetKey(KeyCode.Space))
         {
             //angle = Random.Range(90, 45);
