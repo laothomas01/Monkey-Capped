@@ -7,7 +7,7 @@ public class IndivudalCamManager : MonoBehaviour
     private ArmMonkeyController arm;
     private HeadMonkeyController head;
     private LegMovingController leg;
-    private PickUpObject pickup;
+    //private PickUpObject pickup;
     private HeadMonkeyScream scream;
     GameObject leg_monkey, head_monkey, arm_monkey;
 
