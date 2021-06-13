@@ -31,7 +31,6 @@ public class HeadMonkeyScream : MonoBehaviour
         {
             e.setScared(true);
             Debug.Log("SCARED:" + e.isScared());
-
             //when enemy is scared, do an enemy behavior.
         }
 

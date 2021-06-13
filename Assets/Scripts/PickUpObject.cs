@@ -9,7 +9,7 @@ using UnityEngine;
  *  -PICKED UP OBJECT'S RIGID BODY
  *  -THE PICK UPPER'S TRANSFORM
  */
- 
+
 
 //this script will be assigned to objects needing pick up
 public class PickUpObject : MonoBehaviour
@@ -32,7 +32,7 @@ public class PickUpObject : MonoBehaviour
     {
 
         force = 10.0f;
-
+        angle = 45.0f;
     }
     private void Update()
     {
@@ -42,9 +42,11 @@ public class PickUpObject : MonoBehaviour
         Debug.Log("DISTANCE TO PLAYER:" + distanceToPlayer);
         if (distanceToPlayer.magnitude <= pickUpRange && Input.GetKey(KeyCode.Space))
         {
-            angle = Random.Range(90, 45);
+            //angle = Random.Range(90, 45);
             force = Random.Range(400, 500);
+
             PickUp();
+
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {

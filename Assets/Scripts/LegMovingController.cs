@@ -17,7 +17,7 @@ public class LegMovingController : MonoBehaviour
 
     private void Start()
     {
-      //  animator = GetComponent<Animator>();
+        //  animator = GetComponent<Animator>();
     }
 
     // increase the gravity
@@ -26,7 +26,7 @@ public class LegMovingController : MonoBehaviour
     void FixedUpdate()
     {
         //moves the player based on direction   
-        Vector3 playerMovement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+        Vector3 playerMovement = new Vector3(0f, 0f, Input.GetAxis("Horizontal"));
         transform.position += playerMovement * moveSpeed * Time.deltaTime;
         //checks if can jump or not
         if (numberOfJumps < 1)
