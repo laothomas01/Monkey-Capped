@@ -6,12 +6,6 @@ public class CameraScript : MonoBehaviour
 {
     public List<Transform> targets;
 
-
-
-
-
-
-
     public float smoothSpeed = 0.5f;
     public Vector3 offset;
     private Vector3 velocity;
@@ -35,7 +29,7 @@ public class CameraScript : MonoBehaviour
     private void Start()
     {
 
-
+        
         leg_monkey = GameObject.Find("Leg_Monkey");
         head_monkey = GameObject.Find("Head_Monkey");
         arm_monkey = GameObject.Find("Arm_Monkey");
