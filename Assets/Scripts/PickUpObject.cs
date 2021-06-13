@@ -31,7 +31,7 @@ public class PickUpObject : MonoBehaviour
     private void Start()
     {
 
-        force = 10.0f;
+        force = 450.0f;
         angle = 45.0f;
     }
     private void Update()
@@ -43,7 +43,7 @@ public class PickUpObject : MonoBehaviour
         if (distanceToPlayer.magnitude <= pickUpRange && Input.GetKey(KeyCode.Space))
         {
             //angle = Random.Range(90, 45);
-            force = Random.Range(400, 500);
+            //force = Random.Range(400, 500);
 
             PickUp();
 
