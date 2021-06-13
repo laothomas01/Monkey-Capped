@@ -5,22 +5,19 @@ using UnityEngine;
 public class PointSystem : MonoBehaviour
 {
     // Start is called before the first frame update
-    int points;
+    public int points = 0;
     void Start()
     {
-        points = 0;
+
     }
     public void Update()
     {
-        Debug.Log("POINTS:" + getPoints());
+        //Debug.Log("POINTS:" + getPoints());
+
     }
-    public int getPoints()
+    private void OnGUI()
     {
-        return points;
-    }
-    public void setPoints(int p)
-    {
-        points = p;
+        GUI.Label(new Rect(10, 10, 100, 20), " Score: " + points);
     }
 
 }
