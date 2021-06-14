@@ -26,14 +26,20 @@ public class PickUpObject : MonoBehaviour
     //our pick up range
     public float pickUpRange;
     public float angle;
+    public float angleThreshold;
     public float force;
+    public GameObject AngleDetector;
     public bool holdingObject;
+    private bool peakedAngle =false;
+    private bool flipped = false;
     private void Start()
     {
 
         force = 450.0f;
         angle = 45.0f;
+        angleThreshold = 0;
     }
+
     private void Update()
     {
 
@@ -44,9 +50,42 @@ public class PickUpObject : MonoBehaviour
         {
             //angle = Random.Range(90, 45);
             //force = Random.Range(400, 500);
-
+    
             PickUp();
 
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            flipped = true;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            flipped = false;
+        }
+        if (holdingObject)
+        {
+            if (peakedAngle && angle >0)
+            {
+                angle--;
+               if(angle == 0)
+                {
+                    peakedAngle = false;
+                }
+            }
+            else if(peakedAngle == false && angle <90 )
+            {
+                angle++;
+                if (angle == 90)
+                {
+                    peakedAngle = true;
+                }
+
+            }
+            if (flipped) { AngleDetector.transform.eulerAngles = new Vector3(-angle, 0, 0); }
+            else
+            {
+                AngleDetector.transform.eulerAngles = new Vector3(angle, 0, 0);
+            }
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -81,9 +120,15 @@ public class PickUpObject : MonoBehaviour
     //when an object is dropped, it's thrown.
     private void Throw()
     {
-        float xcomponent = Mathf.Cos(angle * Mathf.PI / 180) * force;
-        float ycomponent = Mathf.Sin(angle * Mathf.PI / 180) * force;
-
+        
+        Debug.Log(angle+ " angle");
+        Debug.Log(AngleDetector.transform.eulerAngles.x+ " euler");
+        float xcomponent = Mathf.Cos(360-angle * Mathf.PI / 180) * force;
+        float ycomponent = Mathf.Sin(360-angle * Mathf.PI / 180) * force;
+        if (flipped)
+        {
+            xcomponent = -xcomponent;
+        }
         boxRigidBody.AddForce(0, ycomponent, xcomponent);
     }
 

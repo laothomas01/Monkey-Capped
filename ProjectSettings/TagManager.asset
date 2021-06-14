@@ -6,8 +6,12 @@ TagManager:
   tags:
   - Box
   - Pickable
+<<<<<<< HEAD
   - enemy
   - bannana
+=======
+  - Tree
+>>>>>>> dev
   layers:
   - Default
   - TransparentFX
