@@ -7,11 +7,13 @@ TagManager:
   - Box
   - Pickable
   - Tree
+  - bannana
+  - Monkey
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Monkey
   - Water
   - UI
   - 

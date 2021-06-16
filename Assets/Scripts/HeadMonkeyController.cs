@@ -21,4 +21,6 @@ public class HeadMonkeyController : MonoBehaviour
         playerMovement = new Vector3(0, 0, horizontal * speed);
         rb.AddForce( playerMovement * speed * Time.deltaTime);
     }
-}
+
+
+    }
