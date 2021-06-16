@@ -43,6 +43,8 @@ public class PickUpObject : MonoBehaviour
     private void Update()
     {
 
+
+
         //distance from player = our player's position - our box's position
         Vector3 distanceToPlayer = player.position - this.transform.position;
         //Debug.Log("DISTANCE TO PLAYER:" + distanceToPlayer);
@@ -120,9 +122,7 @@ public class PickUpObject : MonoBehaviour
     //when an object is dropped, it's thrown.
     private void Throw()
     {
-        
-        Debug.Log(angle+ " angle");
-        Debug.Log(AngleDetector.transform.eulerAngles.x+ " euler");
+       
         float xcomponent = Mathf.Cos(360-angle * Mathf.PI / 180) * force;
         float ycomponent = Mathf.Sin(360-angle * Mathf.PI / 180) * force;
         if (flipped)
