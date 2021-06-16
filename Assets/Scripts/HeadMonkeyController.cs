@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class HeadMonkeyController : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 1f;
     //f = m * a
     Rigidbody rb;
+    Vector3 playerMovement;
+    float horizontal;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,8 @@ public class HeadMonkeyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector3(0, 0, Input.GetAxis("Horizontal") * speed);
+        horizontal = Input.GetAxis("Horizontal");
+        playerMovement = new Vector3(0, 0, horizontal * speed);
+        rb.AddForce( playerMovement * speed * Time.deltaTime);
     }
 }
