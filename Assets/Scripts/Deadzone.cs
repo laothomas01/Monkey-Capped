@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Deadzone : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Deadzone : MonoBehaviour
     {
         if(other.tag == "Monkey" || other.gameObject.name == "Head_Monkey")
         {
-            Application.LoadLevel(Application.loadedLevel);
+            SceneManager.LoadScene(1);
         }
     }
 }

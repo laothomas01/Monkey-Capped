@@ -5,24 +5,29 @@ using UnityEngine;
 public class BannanaCollecting : MonoBehaviour
 {
     // Start is called before the first frame update
-
-    void Start()
+    private GameObject collider;
+    private GameObject scoreManager;
+    void Awake()
     {
-
+        scoreManager = GameObject.Find("Canvas");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        transform.RotateAround(transform.position,Vector3.up,20*Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "bannana")
+        collider = other.gameObject;
+        if (other.tag == "Monkey")
         {
-            other.GetComponent<PointSystem>().points++;
-            Destroy(other);
+            if (scoreManager != null)
+            {
+                scoreManager.GetComponent<LevelUIManager>().score++;
+            }
+            Destroy(gameObject);
         }
 
     }

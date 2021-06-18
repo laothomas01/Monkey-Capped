@@ -46,7 +46,7 @@ public class ArmMonkeyController : MonoBehaviour
         {
             canClimb = true;
         }
-        if (other.tag == "Pickable" && !holding)
+        if (other.gameObject.layer == 6 && !holding)
         {
             pickable = other.gameObject;
             pickableRb = pickable.GetComponent<Rigidbody>();
@@ -59,7 +59,7 @@ public class ArmMonkeyController : MonoBehaviour
         {
             canClimb = false;
         }
-        if (other.tag == "Pickable" && !holding)
+        if (other.gameObject.layer == 6 && !holding)
         {
             pickable = null;
             pickableRb = null;
