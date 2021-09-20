@@ -1,6 +1,6 @@
 # Monkey-Capped
 ## Game Summary
-  Inspired by the buddhist proverb Speak No Evil, See No Evil, Speak No Evil,
+  Inspired by the buddhist proverb Speak No Evil, See No Evil, Hear No Evil,
   play as three handicapped monkeys that must work together through treacherous jungles and cities
   to ensure their survival.
   - Monkey 1: has legs, but no arms and tongue.
