@@ -15,7 +15,6 @@
 ## Development Progress Logs
 
 ### Monkey Prototypes
-![Early Developement](https://github.com/DeathlyHallow98/Monkey-Capped/blob/main/MonkeyCappedDay1Development.png?raw=true "Developement Process")
 
 ![Early Developement](https://github.com/DeathlyHallow98/Monkey-Capped/blob/main/Arm%20monkey%20development.png?raw=true "Developement Process")
 
