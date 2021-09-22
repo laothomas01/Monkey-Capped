@@ -10,10 +10,21 @@
   - Monkey 1: has legs, but no arms and tongue.
   - Monkey 2: has arms, but no legs and no tongue
   - Monkey 3: has no arms and no leges, but it can scream. 
-## Levels:
-  - Zoo
-  - City
-  - Jungle
+
 
 ## Development Progress Logs
+
+### Monkey Prototypes
+
+![Early Developement](https://github.com/DeathlyHallow98/Monkey-Capped/blob/main/Arm%20monkey%20development.png?raw=true "Developement Process")
+
+![Early Developement](https://github.com/DeathlyHallow98/Monkey-Capped/blob/main/Arm%20monkey%20Development%202.png?raw=true "Developement Process")
+
+### Level Design
+
+![Level_Test1](https://github.com/DeathlyHallow98/Monkey-Capped/blob/main/LevelTesting.png?raw=true "Developement Process")
+
+
+
+
 
