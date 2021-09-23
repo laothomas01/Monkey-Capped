@@ -29,6 +29,6 @@
 ![Level_Test3](https://github.com/UmairKhalid98/Monkey-Capped/blob/main/Screen%20Shot%202021-09-21%20at%201.38.15%20AM.png?raw=true "Developement Process")
 
 
-
-
+### Gameplay Demo(click image to access video)
+[![Gameplay Thumbnail](https://github.com/laothomas01/Monkey-Capped/blob/c759ff6a51a3cab3ba23c4532beca12af89079f9/Gameplay%20Thumbnail.png)](https://www.youtube.com/watch?v=WJM53UXkaQo&ab_channel=thomaslao)
 
