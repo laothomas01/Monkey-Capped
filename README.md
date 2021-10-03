@@ -5,8 +5,7 @@ Monkey-Capped was a game developed by Github users Thomas Lao(laothomas01) and U
 
 Given 2 days, we had to come up with a game that fit the theme of Joined Together. 
 
-We decided on the idea of handicapped monkey joining together to help each other navigate the jungles. Our game was ranked 5400 out 
-of 5700 entries. 
+We decided on the idea of handicapped monkey joining together to help each other navigate the jungles. 
 
 Not too bad for a first game jam.
 
